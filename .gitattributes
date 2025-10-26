@@ -1,0 +1,8 @@
+* text=auto eol=lf
+
+# Windows bat skripte naj ostanejo CRLF
+*.bat text eol=crlf
+
+# Git bolje diff-a določene formate
+*.md  diff=markdown
+*.json linguist-language=JSON

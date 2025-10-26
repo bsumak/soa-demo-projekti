@@ -1,0 +1,58 @@
+# === OS ===
+.DS_Store
+Thumbs.db
+
+# === IDE ===
+.vscode/
+.idea/
+*.iml
+*.suo
+*.user
+*.userossc
+*.sln.docstates
+
+# === Java / Maven / Gradle ===
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+.build/
+.gradle/
+gradle-app.setting
+gradle-wrapper.jar
+.gradle/
+out/
+
+# === .NET ===
+bin/
+obj/
+[Bb]uild/
+[Ll]og/
+*.userprefs
+*.ncrunch*
+*.vs/
+*.psess
+TestResults/
+*.snupkg
+project.lock.json
+*.nuget.props
+*.nuget.targets
+artifacts/
+
+# === Node / JS ===
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+dist/
+.build/
+.cache/
+
+# === Docker ===
+**/.dockerignore
+**/docker-compose.override.yml
+**/.env
