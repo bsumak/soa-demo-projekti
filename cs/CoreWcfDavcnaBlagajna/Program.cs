@@ -29,7 +29,6 @@ app.UseServiceModel(sb =>
     // WSDL prek HTTP GET (isti URL + ?wsdl)
     var smb = app.Services.GetRequiredService<ServiceMetadataBehavior>();
     smb.HttpGetEnabled = true;
-    smb.HttpGetUrl = new Uri("http://localhost:8082/DavcnaBlagajna");
 });
 
 app.Run();
