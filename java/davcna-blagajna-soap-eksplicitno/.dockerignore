@@ -1,0 +1,29 @@
+# VCS & meta
+.git
+.gitignore
+.gitattributes
+
+# IDE / OS
+.vscode/
+.idea/
+*.iml
+.project
+.classpath
+.settings/
+.DS_Store
+Thumbs.db
+
+# Maven wrapper (ker v Dockerfile uporabljaš maven image, wrapper NE rabiš)
+.mvn/
+mvnw
+mvnw.cmd
+
+# Build artefakti
+target/
+*/target/
+
+# Test/coverage output
+surefire-reports/
+failsafe-reports/
+jacoco.exec
+jacoco/
