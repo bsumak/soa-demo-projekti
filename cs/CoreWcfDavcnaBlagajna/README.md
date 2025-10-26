@@ -1,4 +1,4 @@
-# Davčna Blagajna – CoreWCF (.NET 8)
+# Davčna Blagajna – CoreWCF (.NET 9)
 
 CoreWCF primer za SOAP storitev, ki posluša na **8082**. WSDL je omogočen prek `ServiceMetadataBehavior`.
 
