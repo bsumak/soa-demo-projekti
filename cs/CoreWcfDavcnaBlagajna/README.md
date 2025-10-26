@@ -6,7 +6,7 @@ CoreWCF primer za SOAP storitev, ki posluša na **8082**. WSDL je omogočen prek
 - WSDL: `http://localhost:8082/DavcnaBlagajna?wsdl`
 
 ## Zahteve
-- .NET SDK 8.0
+- .NET SDK 9.0
 - (za Docker) Docker Desktop / Engine
 
 ## Hiter zagon (lokalno)
