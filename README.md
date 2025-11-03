@@ -4,6 +4,7 @@ Primeri SOAP spletnih storitev za predavanja in vaje:
 - **Java / JAX-WS (implicitno)** → [`java/davcna-blagajna-soap-implicitno`](java/davcna-blagajna-soap-implicitno)
 - **Java / JAX-WS (eksplicitno, z vmesnikom)** → [`java/davcna-blagajna-soap-eksplicitno`](java/davcna-blagajna-soap-eksplicitno)
 - **.NET / CoreWCF** → [`cs/CoreWcfDavcnaBlagajna`](cs/CoreWcfDavcnaBlagajna)
+- **JavaScript / soap in express** → [`js/davcnablagajna`](js/davcnablagajna)
 
 ## Zahteve
 - **Docker** (Desktop ali Engine)
@@ -41,6 +42,14 @@ dotnet run
 # WSDL: http://localhost:8082/DavcnaBlagajna?wsdl
 ```
 
+## JavaScript
+```bash
+cd js/davcnablagajna
+npm install
+node index.js
+# WSDL: http://localhost:9090/davcnablagajna?wsdl
+```
+
 ---
 
 ## Hitri zagon (Docker)
@@ -67,6 +76,14 @@ cd cs/CoreWcfDavcnaBlagajna
 docker build -t corewcf-davcnablagajna:latest .
 docker run --rm -p 8082:8082 corewcf-davcnablagajna:latest
 # WSDL: http://localhost:8082/DavcnaBlagajna?wsdl
+```
+
+## JavaScript
+```bash
+cd js/davcnablagajna
+docker build -t node-davcnablagajna:latest .
+docker run --rm -p 9090:9090 node-davcnablagajna:latest
+# WSDL: http://localhost:9090/davcnablagajna?wsdl
 ```
 
 ---

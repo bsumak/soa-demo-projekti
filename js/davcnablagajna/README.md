@@ -22,7 +22,7 @@ js/
 
 ## Hiter zagon (lokalno)
 ```bash
-cd javascript/<ime-projekta>
+cd js/davcnablagajna
 npm install
 node index.js
 # WSDL: http://localhost:9090/davcnablagajna?wsdl
@@ -30,7 +30,7 @@ node index.js
 
 ## Docker
 ```bash
-cd javascript/<ime-projekta>
+cd js/davcnablagajna
 docker build -t node-davcnablagajna:latest .
 docker run --rm -p 9090:9090 node-davcnablagajna:latest
 # WSDL: http://localhost:9090/davcnablagajna?wsdl
