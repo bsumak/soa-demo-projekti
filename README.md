@@ -96,5 +96,6 @@ docker run --rm -p 9090:9090 node-davcnablagajna:latest
 │   └── davcna-blagajna-soap-eksplicitno/
 ├── cs/
 │   └── CoreWcfDavcnaBlagajna/
-└── js/        # (rezervirano za prihodnje primere)
+└── js/        
+│   └── davcnablagajna/
 ```
