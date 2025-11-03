@@ -1,18 +1,16 @@
-package si.feri.soa.davcnablagajna.entity;
+package si.feri.soa.davcnablagajna.data;
 
 import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlType;
 
 @XmlRootElement
-@XmlType(name = "Racun", 
-namespace = "http://si.feri.soa/davcnablagajna/data/racun/1.0")
+@XmlType(name = "Racun",
+    namespace = "http://si.feri.soa/davcnablagajna/data/racun/1.0")
 public class Racun {
-
     private String id;
     private String davcnaSt;
     private String datum;
-    private double znesek;
-    private String ppId;
+
     public String getId() {
         return id;
     }
@@ -43,6 +41,6 @@ public class Racun {
     public void setPpId(String ppId) {
         this.ppId = ppId;
     }
-
-    
+    private double znesek;
+    private String ppId;
 }

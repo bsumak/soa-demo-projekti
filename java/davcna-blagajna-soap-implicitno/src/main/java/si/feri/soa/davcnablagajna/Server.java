@@ -1,11 +1,12 @@
 package si.feri.soa.davcnablagajna;
 
 import jakarta.xml.ws.Endpoint;
+import si.feri.soa.davcnablagajna.services.DavcnaBlagajnaService;
 
 public class Server {
 
     public static void main(String[] args) {
-        
+
         String address = "http://0.0.0.0:8080/davcnablagajna";
 
         Endpoint.publish(address, new DavcnaBlagajnaService());
@@ -15,10 +16,9 @@ public class Server {
 
         try {
             Thread.currentThread().join();
-        } catch (InterruptedException e) {
-            // TODO: handle exception
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
     }
-
 }

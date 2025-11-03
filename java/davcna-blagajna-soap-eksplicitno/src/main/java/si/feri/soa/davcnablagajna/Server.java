@@ -1,20 +1,19 @@
 package si.feri.soa.davcnablagajna;
 
 import jakarta.xml.ws.Endpoint;
+import si.feri.soa.davcnablagajna.services.DavcnaBlagajnaService;
 
 public class Server {
 
     public static void main(String[] args) {
-        String address = "http://0.0.0.0:8080/davcnablagajna";
+        String address = "http://0.0.0.0:8081/davcnablagajna";
         Endpoint.publish(address, new DavcnaBlagajnaService());
         System.out.println("Endpoint: " + address);
         System.out.println("WSDL: " + address + "?wsdl");
-
-        
         try {
             Thread.currentThread().join();
         } catch (Exception e) {
-            // TODO: handle exception
+            e.printStackTrace();
         }
     }
 }

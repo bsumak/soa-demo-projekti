@@ -5,7 +5,6 @@ using CoreWcfDavcnaBlagajna.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// poslušaj na 8082 (izogni se konfliktom z drugimi projekti)
 builder.WebHost.UseUrls("http://0.0.0.0:8082");
 
 // CoreWCF + metadata
@@ -26,7 +25,7 @@ app.UseServiceModel(sb =>
     sb.AddServiceEndpoint<DavcnaBlagajna, IDavcnaBlagajna>(
         binding, "/DavcnaBlagajna");
 
-    // WSDL prek HTTP GET (isti URL + ?wsdl)
+    // WSDL prek HTTP GET
     var smb = app.Services.GetRequiredService<ServiceMetadataBehavior>();
     smb.HttpGetEnabled = true;
 });

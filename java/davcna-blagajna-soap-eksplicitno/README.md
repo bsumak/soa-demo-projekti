@@ -26,8 +26,7 @@ java --add-opens java.base/java.lang=ALL-UNNAMED -jar target/davcna-blagajna-soa
 ```bash
 cd java/davcna-blagajna-soap-eksplicitno
 docker build -t davcna-blagajna:eksplicitno .
-# če je na hostu zaseden 8080, premapiraj na 8081
-docker run --rm -p 8081:8080 davcna-blagajna:eksplicitno
+docker run --rm -p 8081:8081 davcna-blagajna:eksplicitno
 # WSDL: http://localhost:8081/davcnablagajna?wsdl
 ```
 
@@ -35,9 +34,19 @@ docker run --rm -p 8081:8080 davcna-blagajna:eksplicitno
 ```
 src/
   main/java/si/feri/soa/davcnablagajna/
-    IDavcnaBlagajnaService.java  # @WebService (vmesnik)
-    DavcnaBlagajnaService.java   # @WebService(endpointInterface=...)
+    data/
+      PoslovniProstor.java       # podatkovni model
+      Racun.java                 # podatkovni model
+    services/
+      DavcnaBlagajna.java        # @WebService (vmesnik) 
+      DavcnaBlagajnaService.java # implementacija storitve 
     Server.java                  # Endpoint.publish(.../davcnablagajna)
-Dockerfile
+  test/java/si/feri/soa/davcnablagajna/
+    AppTest.java
 pom.xml
+Dockerfile
+.dockerignore
+README.md
 ```
+
+

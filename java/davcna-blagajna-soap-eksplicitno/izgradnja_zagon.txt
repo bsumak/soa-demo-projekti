@@ -1,3 +1,0 @@
-docker build -t davcna-blagajna:eksplicitno .
-
-docker run --rm -p 8081:8080 davcna-blagajna:eksplicitno

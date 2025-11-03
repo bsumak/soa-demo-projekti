@@ -8,16 +8,16 @@ namespace CoreWcfDavcnaBlagajna.Services
 {
     public class DavcnaBlagajna : IDavcnaBlagajna
     {
+        public PoslovniProstor NovPoslovniProstor(PoslovniProstor poslovniProstor)
+        {
+            poslovniProstor.PpId = Guid.NewGuid().ToString();
+            return poslovniProstor;
+        }
+
         public Racun NovRacun(Racun racun)
         {
             racun.Id = Guid.NewGuid().ToString();
             return racun;
-        }
-
-        public PoslovniProstor PoslovniProstor(PoslovniProstor poslovniProstor)
-        {
-            poslovniProstor.PpId = Guid.NewGuid().ToString();
-            return poslovniProstor;
         }
     }
 }

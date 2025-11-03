@@ -34,7 +34,8 @@ docker run --rm -p 8080:8080 davcna-blagajna:implicitno
 ```
 src/
   main/java/si/feri/soa/davcnablagajna/
-    DavcnaBlagajnaService.java   # @WebService (implicitno)
+    services/
+      DavcnaBlagajnaService.java # implementacija storitve 
     Server.java                  # Endpoint.publish(.../davcnablagajna)
 Dockerfile
 pom.xml

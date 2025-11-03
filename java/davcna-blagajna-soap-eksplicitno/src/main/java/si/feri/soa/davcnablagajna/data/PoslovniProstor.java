@@ -1,16 +1,14 @@
-package si.feri.soa.davcnablagajna.entity;
+package si.feri.soa.davcnablagajna.data;
 
 import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlType;
 
 @XmlRootElement
 @XmlType(name = "PoslovniProstor",
- namespace = "http://si.feri.soa/davcnablagajna/data/poslovniprostor/1.0")
+namespace = "http://si.feri.soa/davcnablagajna/data/poslovniprostor/1.0")
 public class PoslovniProstor {
-
     private String ppId;
     private String davcnaSt;
-    private String naslov;
     public String getPpId() {
         return ppId;
     }
@@ -29,6 +27,5 @@ public class PoslovniProstor {
     public void setNaslov(String naslov) {
         this.naslov = naslov;
     }
-
-
+    private String naslov;
 }

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:tns="http://si.feri.soa/davcnablagajna/service/1.0"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    targetNamespace="http://si.feri.soa/davcnablagajna/service/1.0"
+    name="DavcnaBlagajnaImplService">
+    <types>
+        <xs:schema xmlns:tns="http://si.feri.soa/davcnablagajna/service/1.0"
+            xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0"
+            targetNamespace="http://si.feri.soa/davcnablagajna/service/1.0">
+            <xs:element name="poslovniProstor" type="tns:poslovniProstor"></xs:element>
+            <xs:element name="poslovniProstorResponse" type="tns:poslovniProstorResponse"></xs:element>
+            <xs:element name="racun" type="tns:racun"></xs:element>
+            <xs:element name="racunResponse" type="tns:racunResponse"></xs:element>
+            <xs:complexType name="poslovniProstor">
+                <xs:sequence>
+                    <xs:element name="davcnaSt" type="xs:string"></xs:element>
+                    <xs:element name="naslov" type="xs:string"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="poslovniProstorResponse">
+                <xs:sequence>
+                    <xs:element name="ppId" type="xs:string"></xs:element>
+                    <xs:element name="davcnaSt" type="xs:string"></xs:element>
+                    <xs:element name="naslov" type="xs:string"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="racun">
+                <xs:sequence>
+                    <xs:element name="davcnaSt" type="xs:string"></xs:element>
+                    <xs:element name="datum" type="xs:string"></xs:element>
+                    <xs:element name="znesek" type="xs:double"></xs:element>
+                    <xs:element name="ppId" type="xs:string"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="racunResponse">
+                <xs:sequence>
+                    <xs:element name="id" type="xs:string"></xs:element>
+                    <xs:element name="davcnaSt" type="xs:string"></xs:element>
+                    <xs:element name="datum" type="xs:string"></xs:element>
+                    <xs:element name="znesek" type="xs:double"></xs:element>
+                    <xs:element name="ppId" type="xs:string"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+    </types>
+    <message name="racun">
+        <part name="parameters" element="tns:racun"></part>
+    </message>
+    <message name="racunResponse">
+        <part name="parameters" element="tns:racunResponse"></part>
+    </message>
+    <message name="poslovniProstor">
+        <part name="parameters" element="tns:poslovniProstor"></part>
+    </message>
+    <message name="poslovniProstorResponse">
+        <part name="parameters" element="tns:poslovniProstorResponse"></part>
+    </message>
+    <portType name="DavcnaBlagajna">
+        <operation name="NovRacun">
+            <input message="tns:racun"></input>
+            <output message="tns:racunResponse"></output>
+        </operation>
+        <operation name="PoslovniProstor">
+            <input message="tns:poslovniProstor"></input>
+            <output message="tns:poslovniProstorResponse"></output>
+        </operation>
+    </portType>
+    <binding name="DavcnaBlagajnaImplPortBinding" type="tns:DavcnaBlagajna">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"></soap:binding>
+        <operation name="NovRacun">
+            <soap:operation soapAction="racun"></soap:operation>
+            <input>
+                <soap:body use="literal"></soap:body>
+            </input>
+            <output>
+                <soap:body use="literal"></soap:body>
+            </output>
+        </operation>
+        <operation name="PoslovniProstor">
+            <soap:operation soapAction="poslovniProstor"></soap:operation>
+            <input>
+                <soap:body use="literal"></soap:body>
+            </input>
+            <output>
+                <soap:body use="literal"></soap:body>
+            </output>
+        </operation>
+    </binding>
+    <service name="DavcnaBlagajnaService">
+        <port name="DavcnaBlagajnaPort" binding="tns:DavcnaBlagajnaImplPortBinding">
+            <soap:address location="http://localhost:9090/davcnablagajna"></soap:address>
+        </port>
+    </service>
+</definitions>
