@@ -1,4 +1,4 @@
-# SOA demo projekti (Java & .NET)
+# SOA demo projekti (Java & .NET & JavaScript)
 
 Primeri SOAP spletnih storitev za predavanja in vaje:
 - **Java / JAX-WS (implicitno)** → [`java/davcna-blagajna-soap-implicitno`](java/davcna-blagajna-soap-implicitno)
