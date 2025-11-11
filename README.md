@@ -4,7 +4,7 @@ Primeri SOAP spletnih storitev za predavanja in vaje:
 - **Java / JAX-WS (implicitno)** → [`java/davcna-blagajna-soap-implicitno`](java/davcna-blagajna-soap-implicitno)
 - **Java / JAX-WS (eksplicitno, z vmesnikom)** → [`java/davcna-blagajna-soap-eksplicitno`](java/davcna-blagajna-soap-eksplicitno)
 - **Java / CF razvoj na osnovi Apache CXF (JAX-WS)** → [`java/traffic-service-cf`](java/traffic-service-cf) — samostojna JAX‑WS implementacija
-- **Java / CF razvoj na osnovi Spring Boot + Apache CXF** → [`java/traffic-cxf-boot`](java/traffic-service-cf-boot) — Boot aplikacija z vključenim CXF
+- **Java / CF razvoj na osnovi Spring Boot + Apache CXF** → [`java/traffic-service-cf-boot`](java/traffic-service-cf-boot) — Boot aplikacija z vključenim CXF
 - **.NET / CoreWCF** → [`cs/CoreWcfDavcnaBlagajna`](cs/CoreWcfDavcnaBlagajna)
 - **JavaScript / soap in express** → [`js/davcnablagajna`](js/davcnablagajna)
 - **WSDL & XSD vmesnik** → [`/traffic-service`](/traffic-service) — samo tehnična pogodba, nastala v okviru Contract-First
