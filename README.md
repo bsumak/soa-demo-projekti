@@ -7,7 +7,7 @@ Primeri SOAP spletnih storitev za predavanja in vaje:
 - **Java / Spring Boot + Apache CXF** → [`java/traffic-cxf-boot`](java/traffic-cxf-boot) — Boot aplikacija z vključenim CXF
 - **.NET / CoreWCF** → [`cs/CoreWcfDavcnaBlagajna`](cs/CoreWcfDavcnaBlagajna)
 - **JavaScript / soap in express** → [`js/davcnablagajna`](js/davcnablagajna)
-- **WSDL & XSD vmesnik** → [`traffic-service`](/traffic-service) — samo tehnična pogodba, nastala v okviru Contract-First
+- **WSDL & XSD vmesnik** → [`/traffic-service`](/traffic-service) — samo tehnična pogodba, nastala v okviru Contract-First
 
 
 ## Zahteve
