@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions
+  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+  targetNamespace="http://si.feri.soa/trafficservice/service/1.0"
+  xmlns:tns="http://si.feri.soa/trafficservice/service/1.0"
+  xmlns:data="http://si.feri.soa/trafficservice/data/1.0"
+  name="TrafficService">
+
+  <wsdl:types>
+    <xs:schema>
+      <xs:import namespace="http://si.feri.soa/trafficservice/data/1.0"
+         schemaLocation="TrafficServiceData.xsd"></xs:import>
+    </xs:schema>
+  </wsdl:types>
+
+  <wsdl:message name="TrafficSensorActivationRequest">
+    <wsdl:part name="parameters" element="data:TrafficSensorActivationRequest"/>
+  </wsdl:message>
+  <wsdl:message name="TrafficSensorActivationResponse">
+    <wsdl:part name="parameters" element="data:TrafficSensorActivationResponse"/>
+  </wsdl:message>
+  <wsdl:message name="TrafficFlowRequest">
+    <wsdl:part name="parameters" element="data:TrafficFlowRequest"/>
+  </wsdl:message>
+  <wsdl:message name="TrafficFlowResponse">
+    <wsdl:part name="parameters" element="data:TrafficFlowResponse"/>
+  </wsdl:message>
+
+  <wsdl:portType name="TrafficService">
+    <wsdl:operation name="TrafficSensorActivation">
+      <wsdl:input message="tns:TrafficSensorActivationRequest"/>
+      <wsdl:output message="tns:TrafficSensorActivationResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="TrafficFlow">
+      <wsdl:input message="tns:TrafficFlowRequest"/>
+      <wsdl:output message="tns:TrafficFlowResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+
+
+  <!-- konkretni del vmesnika - SOAP binding in service element -->
+  <wsdl:binding name="TrafficServiceImplPortBinding" type="tns:TrafficService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"></soap:binding>
+    <wsdl:operation name="TrafficSensorActivation">
+      <soap:operation soapAction="http://si.feri.soa/trafficservice/service/1.0/TrafficSensorActivation"></soap:operation>
+      <wsdl:input>
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TrafficFlow">
+      <soap:operation soapAction="http://si.feri.soa/trafficservice/service/1.0/TrafficFlow"></soap:operation>
+      <wsdl:input>
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TrafficSensorService">
+    <wsdl:port name="TrafficSensorPort" binding="tns:TrafficServiceImplPortBinding">
+      <soap:address location="http://localhost:9090/trafficservice"></soap:address>
+    </wsdl:port>
+  </wsdl:service>
+
+</wsdl:definitions>

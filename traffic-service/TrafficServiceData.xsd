@@ -1,0 +1,43 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://si.feri.soa/trafficservice/data/1.0"
+    xmlns:tns="http://si.feri.soa/trafficservice/data/1.0"
+    elementFormDefault="qualified">
+
+    <xs:element name="TrafficSensorActivationRequest" type="tns:TrafficSensorActivationRequestType"/>
+    <xs:element name="TrafficSensorActivationResponse" type="tns:TrafficSensorActivationResponseType"/>
+    <xs:element name="TrafficFlowRequest" type="tns:TrafficFlowRequestType"/>
+    <xs:element name="TrafficFlowResponse" type="tns:TrafficFlowResponseType"/>
+
+    <xs:complexType name="TrafficSensorActivationRequestType">
+      <xs:sequence>
+        <xs:element name="SensorName" type="xs:string"/>
+        <xs:element name="SensorType" type="xs:string"/>
+        <xs:element name="Latitude" type="xs:double"/>
+        <xs:element name="Longitude" type="xs:double"/>
+      </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="TrafficSensorActivationResponseType">
+      <xs:sequence>
+        <xs:element name="SensorId" type="xs:string"/>
+        <xs:element name="ActivationDate" type="xs:string"/>
+        <xs:element name="ActivationStatus" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="TrafficFlowRequestType">
+      <xs:sequence>
+        <xs:element name="SensorId" type="xs:string"/>
+        <xs:element name="DateFrom" type="xs:string"/>
+        <xs:element name="DateTo" type="xs:string"/>
+        <xs:element name="TrafficFlow" type="xs:int"/>
+      </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="TrafficFlowResponseType">
+      <xs:sequence>
+        <xs:element name="Response" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

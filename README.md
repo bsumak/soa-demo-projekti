@@ -3,8 +3,12 @@
 Primeri SOAP spletnih storitev za predavanja in vaje:
 - **Java / JAX-WS (implicitno)** → [`java/davcna-blagajna-soap-implicitno`](java/davcna-blagajna-soap-implicitno)
 - **Java / JAX-WS (eksplicitno, z vmesnikom)** → [`java/davcna-blagajna-soap-eksplicitno`](java/davcna-blagajna-soap-eksplicitno)
+- **Java / Apache CXF (JAX-WS)** → [`java/traffic-service-cf`](java/traffic-service-cf) — samostojna JAX‑WS implementacija
+- **Java / Spring Boot + Apache CXF** → [`java/traffic-cxf-boot`](java/traffic-cxf-boot) — Boot aplikacija z vključenim CXF
 - **.NET / CoreWCF** → [`cs/CoreWcfDavcnaBlagajna`](cs/CoreWcfDavcnaBlagajna)
 - **JavaScript / soap in express** → [`js/davcnablagajna`](js/davcnablagajna)
+- **WSDL & XSD vmesnik** → [`java/traffic-service`](/traffic-service) — samo tehnična pogodba, nastala v okviru Contract-First
+
 
 ## Zahteve
 - **Docker** (Desktop ali Engine)
@@ -31,6 +35,22 @@ java --add-opens java.base/java.lang=ALL-UNNAMED -jar target/davcna-blagajna-soa
 # WSDL: http://localhost:8080/davcnablagajna?wsdl
 ```
 
+### Java – TrafficService (Apache CXF, JAX-WS)
+```bash
+cd java/traffic-service-cf
+mvn -DskipTests clean package
+java -jar target/traffic-service-cf.jar
+# WSDL: http://localhost:9090/trafficservice?wsdl
+```
+
+### Java – TrafficService (Spring Boot + CXF)
+```bash
+cd java/traffic-cxf-boot
+mvn -DskipTests clean package
+java -jar target/traffic-cxf-boot-*.jar
+# WSDL: http://localhost:9090/services/trafficservice?wsdl
+```
+
 > **Opomba (Java + Metro)**: zaradi internega reflektiranja je na JDK 17+ potreben
 > `--add-opens java.base/java.lang=ALL-UNNAMED`.
 
@@ -42,7 +62,7 @@ dotnet run
 # WSDL: http://localhost:8082/DavcnaBlagajna?wsdl
 ```
 
-## JavaScript
+### JavaScript
 ```bash
 cd js/davcnablagajna
 npm install
@@ -70,6 +90,22 @@ docker run --rm -p 8081:8080 davcna-blagajna:eksplicitno
 # WSDL: http://localhost:8081/davcnablagajna?wsdl
 ```
 
+### Java – TrafficService (Apache CXF, JAX-WS)
+```bash
+cd java/traffic-service-cf
+docker build -t traffic-service-cf:latest .
+docker run --rm -p 9090:9090 traffic-service-cf:latest
+# WSDL: http://localhost:9090/trafficservice?wsdl
+```
+
+### Java – TrafficServices (Spring Boot + CXF)
+```bash
+cd java/traffic-cxf-boot
+docker build -t traffic-cxf-boot:latest .
+docker run --rm -e SERVER_PORT=9090 -p 9090:9090 traffic-cxf-boot:latest
+# WSDL: http://localhost:9090/services/trafficservice?wsdl
+```
+
 ### .NET – CoreWCF
 ```bash
 cd cs/CoreWcfDavcnaBlagajna
@@ -78,7 +114,7 @@ docker run --rm -p 8082:8082 corewcf-davcnablagajna:latest
 # WSDL: http://localhost:8082/DavcnaBlagajna?wsdl
 ```
 
-## JavaScript
+### JavaScript
 ```bash
 cd js/davcnablagajna
 docker build -t node-davcnablagajna:latest .
@@ -93,9 +129,12 @@ docker run --rm -p 9090:9090 node-davcnablagajna:latest
 .
 ├── java/
 │   ├── davcna-blagajna-soap-implicitno/
-│   └── davcna-blagajna-soap-eksplicitno/
+│   ├── davcna-blagajna-soap-eksplicitno/
+│   ├── traffic-service-cf/       # Apache CXF JAX-WS implementacija
+│   └── traffic-cxf-boot/         # Spring Boot + CXF implementacija
 ├── cs/
 │   └── CoreWcfDavcnaBlagajna/
 └── js/        
-│   └── davcnablagajna/
+    └── davcnablagajna/
+└── traffic-service/              # WSDL + XSD (tehnični vmesnik spletne storitve TrafficService)
 ```

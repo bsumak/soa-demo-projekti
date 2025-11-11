@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns="http://schemas.xmlsoap.org/wsdl/"
+  targetNamespace="http://si.feri.soa/trafficservice/service/1.0"
+  xmlns:tns="http://si.feri.soa/trafficservice/service/1.0"
+  xmlns:data="http://si.feri.soa/trafficservice/data/1.0"
+  name="TrafficService">
+
+  <types>
+    <xs:schema>
+        <xs:import namespace="http://si.feri.soa/trafficservice/data/1.0"
+        schemaLocation="TrafficServiceData.xsd" />
+      </xs:schema>
+  </types>
+
+  <message name="TrafficSensorActivationRequest">
+    <part name="TrafficSensorActivationRequest" element="data:TrafficSensorActivationRequest" />
+  </message>
+
+  <message name="TrafficSensorActivationResponse">
+    <part name="TrafficSensorActivationResponse" element="data:TrafficSensorActivationResponse" />
+  </message>
+
+
+  <message name="TrafficFlowRequest">
+    <part name="TrafficFlowRequest" element="data:TrafficFlowRequest" />
+  </message>
+
+  <message name="TrafficFlowResponse">
+    <part name="TrafficFlowResponse" element="data:TrafficFlowResponse" />
+  </message>
+
+
+  <portType name="TrafficService">
+    <operation name="TrafficSensorActivation">
+      <input message="tns:TrafficSensorActivationRequest" />
+      <output message="tns:TrafficSensorActivationResponse" />
+    </operation>
+    <operation name="TrafficFlow">
+      <input message="tns:TrafficFlowRequest" />
+      <output message="tns:TrafficFlowResponse" />
+    </operation>
+
+  </portType>
+
+
+  <!-- konkretni del vmesnika - SOAP binding in service element -->
+  <binding name="TrafficServiceImplPortBinding" type="tns:TrafficService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"></soap:binding>
+    <operation name="TrafficSensorActivation">
+      <soap:operation soapAction="trafficSensorActivation"></soap:operation>
+      <input>
+        <soap:body use="literal"></soap:body>
+      </input>
+      <output>
+        <soap:body use="literal"></soap:body>
+      </output>
+    </operation>
+    <operation name="TrafficFlow">
+      <soap:operation soapAction="trafficFlow"></soap:operation>
+      <input>
+        <soap:body use="literal"></soap:body>
+      </input>
+      <output>
+        <soap:body use="literal"></soap:body>
+      </output>
+    </operation>
+  </binding>
+  <service name="TrafficSensorService">
+    <port name="TrafficSensorPort" binding="tns:TrafficServiceImplPortBinding">
+      <soap:address location="http://localhost:9090/trafficservice"></soap:address>
+    </port>
+  </service>
+
+</definitions>
