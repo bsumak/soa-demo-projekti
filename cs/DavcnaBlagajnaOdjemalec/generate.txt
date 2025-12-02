@@ -1,0 +1,2 @@
+dotnet-svcutil http://localhost:8081/davcnablagajna?wsdl \
+  --namespace "*,DavcnaBlagajnaOdjemalec.Proxy"
