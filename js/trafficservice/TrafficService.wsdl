@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+  xmlns:tns="http://si.feri.soa/trafficservice/1.0"
+  xmlns:data="http://si.feri.soa/trafficservice/data/1.0"
+  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+  xmlns:ns1="http://schemas.xmlsoap.org/soap/http"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  name="TrafficService"
+  targetNamespace="http://si.feri.soa/trafficservice/1.0">
+
+  <wsdl:types>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+      xmlns:tns="http://si.feri.soa/trafficservice/data"
+      elementFormDefault="unqualified" targetNamespace="http://si.feri.soa/trafficservice/data/1.0">
+
+      <xs:element name="TrafficSensorActivationRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="SensorName" type="xs:string" />
+            <xs:element name="SensorType" type="xs:string" />
+            <xs:element name="Latitude" type="xs:string" />
+            <xs:element name="Longitude" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="TrafficSensorActivationResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="SensorID" type="xs:long" />
+            <xs:element name="ActivationStatus" type="xs:string" />
+            <xs:element name="ActivationDate" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="TrafficFlowRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="SensorId" type="xs:long" />
+            <xs:element name="DateFrom" type="xs:string" />
+            <xs:element name="DateTo" type="xs:string" />
+            <xs:element name="TrafficFlow" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="TrafficFlowResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Response" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+    </xs:schema>
+  </wsdl:types>
+
+  <wsdl:message name="TrafficSensorActivationRequest">
+    <wsdl:part name="params" element="data:TrafficSensorActivationRequest" />
+  </wsdl:message>
+  <wsdl:message name="TrafficSensorActivationResponse">
+    <wsdl:part name="params" element="data:TrafficSensorActivationResponse" />
+  </wsdl:message>
+  <wsdl:message name="TrafficFlowRequest">
+    <wsdl:part name="params" element="data:TrafficFlowRequest" />
+  </wsdl:message>
+  <wsdl:message name="TrafficFlowResponse">
+    <wsdl:part name="params" element="data:TrafficFlowResponse" />
+  </wsdl:message>
+
+  <wsdl:portType name="TrafficService">
+    <wsdl:operation name="TrafficSensorActivation">
+      <wsdl:input message="tns:TrafficSensorActivationRequest" />
+      <wsdl:output message="tns:TrafficSensorActivationResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="TrafficFlow">
+      <wsdl:input message="tns:TrafficFlowRequest" />
+      <wsdl:output message="tns:TrafficFlowResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+
+  <wsdl:binding name="TrafficServiceSOAP" type="tns:TrafficService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TrafficSensorActivation">
+      <soap:operation soapAction="http://localhost:8080/ws/TrafficService/TrafficSensorActivation" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TrafficFlow">
+      <soap:operation soapAction="http://localhost:8080/ws/TrafficService/TrafficFlow" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+
+  <wsdl:service name="TrafficService">
+    <wsdl:port binding="tns:TrafficServiceSOAP" name="TrafficServiceSOAP">
+      <soap:address location="http://localhost:9090/TrafficService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
