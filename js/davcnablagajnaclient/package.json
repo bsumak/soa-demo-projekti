@@ -1,0 +1,10 @@
+{
+  "name": "davcnablagajnaclient",
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "pretty-data": "^0.40.0",
+    "soap": "^1.0.0",
+    "xml-formatter": "^3.6.7"
+  }
+}

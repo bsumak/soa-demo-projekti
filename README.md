@@ -1,6 +1,5 @@
 # SOA demo projekti (Java & .NET & JavaScript)
 
-Primeri SOAP spletnih storitev za predavanja in vaje:
 - **Java / JAX-WS (implicitno)** → [`java/davcna-blagajna-soap-implicitno`](java/davcna-blagajna-soap-implicitno)
 - **Java / JAX-WS (eksplicitno, z vmesnikom)** → [`java/davcna-blagajna-soap-eksplicitno`](java/davcna-blagajna-soap-eksplicitno)
 - **Java / CF razvoj na osnovi Apache CXF (JAX-WS)** → [`java/traffic-service-cf`](java/traffic-service-cf) — samostojna JAX‑WS implementacija
@@ -9,12 +8,23 @@ Primeri SOAP spletnih storitev za predavanja in vaje:
 - **JavaScript / soap in express** → [`js/davcnablagajna`](js/davcnablagajna)
 - **WSDL & XSD vmesnik** → [`/traffic-service`](/traffic-service) — samo tehnična pogodba, nastala v okviru Contract-First
 
+### Odjemalski projekti (klienti)
+
+- Java / JAX-WS odjemalec za storitev Davčna blagajna → `java/davcna-blagajna-client`
+- .NET odjemalec za storitev Davčna blagajna → `cs/DavcnaBlagajnaOdjemalec`
+- JavaScript / Node.js primer za storitev TrafficService → `js/trafficservice`
+
+
+Primeri odjemalcev SOAP spletnih storitev za predavanja in vaje:
+- **.NET / C# (async)** → [`cs/DavcnaBlagajnaOdjemalec`](cs/DavcnaBlafajnaOdjemalec)
+- **Java / JAX-WS (sync in async)** → [`java/davcna-blagajna-client`](java/davcna-blagajna-client)
+- **JavaScript / fetch in Node.js primer (async)** → [`js/davcnablagajna`](js/davcnablagajnaclient)
 
 ## Zahteve
 - **Docker** (Desktop ali Engine)
 - **Java 21+** (priporočeno 25) in **Maven 3.9+** za lokalni zagon Java projektov
 - **.NET SDK 8.0** za lokalni zagon CoreWCF projekta
-
+- **Node.js (LTS različica) in npm** za projekte v mapi `js/`
 ---
 
 ## Hitri zagon (lokalno)
@@ -128,13 +138,16 @@ docker run --rm -p 9090:9090 node-davcnablagajna:latest
 ```
 .
 ├── java/
-│   ├── davcna-blagajna-soap-implicitno/
-│   ├── davcna-blagajna-soap-eksplicitno/
-│   ├── traffic-service-cf/       # Apache CXF JAX-WS implementacija
-│   └── traffic-cxf-boot/         # Spring Boot + CXF implementacija
+│   ├── davcna-blagajna-soap-implicitno/   # Java JAX-WS, implicitna definicija storitve
+│   ├── davcna-blagajna-soap-eksplicitno/  # Java JAX-WS, eksplicitni vmesnik
+│   ├── traffic-service-cf/                # Apache CXF JAX-WS implementacija
+│   ├── traffic-service-cf-boot/           # Spring Boot + CXF implementacija
+│   └── davcna-blagajna-client/            # Java odjemalec za storitev Davčna blagajna
 ├── cs/
-│   └── CoreWcfDavcnaBlagajna/
-└── js/        
-    └── davcnablagajna/
-└── traffic-service/              # WSDL + XSD (tehnični vmesnik spletne storitve TrafficService)
+│   ├── CoreWcfDavcnaBlagajna/             # .NET CoreWCF implementacija storitve
+│   └── DavcnaBlagajnaOdjemalec/           # .NET odjemalec za Davčno blagajno
+├── js/
+│   ├── davcnablagajna/                    # Node.js implementacija storitve Davčna blagajna
+│   └── trafficservice/                    # Node.js primer za storitev TrafficService
+└── traffic-service/                       # WSDL + XSD (tehnični vmesnik spletne storitve TrafficService)
 ```

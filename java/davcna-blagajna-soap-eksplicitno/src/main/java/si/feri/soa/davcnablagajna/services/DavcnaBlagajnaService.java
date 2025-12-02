@@ -1,6 +1,7 @@
 package si.feri.soa.davcnablagajna.services;
 
 import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 
 import jakarta.jws.WebService;
 import si.feri.soa.davcnablagajna.data.PoslovniProstor;
@@ -12,6 +13,11 @@ public class DavcnaBlagajnaService implements DavcnaBlagajna {
     @Override
     public Racun novRacun(Racun racun) {
        racun.setId(UUID.randomUUID().toString());
+       try {
+        TimeUnit.SECONDS.sleep(5);
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }
        return racun;
     }
 
