@@ -51,19 +51,6 @@ Natančen naslov preveri v izpisu ob zagonu ali v konfiguraciji projekta.
   - posodobi pot do WSDL (če je premaknjena datoteka v `traffic-service/`),
   - spremeni port, na katerem posluša Node.js aplikacija.
 
-## Docker (opcijsko)
-
-Če ima projekt pripravljen `Dockerfile`, lahko storitev zaženeš v Docker vsebniku:
-
-```bash
-cd js/trafficservice
-docker build -t trafficservice-node:latest .
-docker run --rm -p 9090:9090 trafficservice-node:latest
-# WSDL (primer): http://localhost:9090/trafficservice?wsdl
-```
-
-Port 9090 po potrebi prilagodi (npr. 9091, 8080 …), da se ne tepe z drugimi primeri v istem repozitoriju.
-
 ## Povezava z drugimi projekti
 
 - WSDL + XSD pogodba: `traffic-service/`
