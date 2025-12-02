@@ -1,0 +1,10 @@
+<jaxws:bindings
+  xmlns:jaxws="https://jakarta.ee/xml/ns/jaxws"
+  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+  wsdlLocation="http://localhost:8081/davcnablagajna?wsdl"
+  version="3.0">
+
+  <jaxws:bindings node="wsdl:definitions">
+    <jaxws:enableAsyncMapping>true</jaxws:enableAsyncMapping>
+  </jaxws:bindings>
+</jaxws:bindings>
