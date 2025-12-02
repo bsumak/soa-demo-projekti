@@ -148,6 +148,6 @@ docker run --rm -p 9090:9090 node-davcnablagajna:latest
 │   └── DavcnaBlagajnaOdjemalec/           # .NET odjemalec za Davčno blagajno
 ├── js/
 │   ├── davcnablagajna/                    # Node.js implementacija storitve Davčna blagajna
-│   └── trafficservice/                    # Node.js primer za storitev TrafficService
+│   └── trafficservice/                    # Node.js primer za storitev TrafficService po pristopu Contract-First
 └── traffic-service/                       # WSDL + XSD (tehnični vmesnik spletne storitve TrafficService)
 ```
