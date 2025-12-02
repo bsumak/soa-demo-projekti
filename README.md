@@ -8,7 +8,7 @@
 - **JavaScript / soap in express** → [`js/davcnablagajna`](js/davcnablagajna)
 - **WSDL & XSD vmesnik** → [`/traffic-service`](/traffic-service) — samo tehnična pogodba, nastala v okviru Contract-First
 
-### Odjemalski projekti (klienti)
+### projekti odjemalcev storitev
 
 - Java / JAX-WS odjemalec za storitev Davčna blagajna → `java/davcna-blagajna-client`
 - .NET odjemalec za storitev Davčna blagajna → `cs/DavcnaBlagajnaOdjemalec`
@@ -140,8 +140,8 @@ docker run --rm -p 9090:9090 node-davcnablagajna:latest
 ├── java/
 │   ├── davcna-blagajna-soap-implicitno/   # Java JAX-WS, implicitna definicija storitve
 │   ├── davcna-blagajna-soap-eksplicitno/  # Java JAX-WS, eksplicitni vmesnik
-│   ├── traffic-service-cf/                # Apache CXF JAX-WS implementacija
-│   ├── traffic-service-cf-boot/           # Spring Boot + CXF implementacija
+│   ├── traffic-service-cf/                # Apache CXF JAX-WS implementacija storitve po pristopu Contract-First
+│   ├── traffic-service-cf-boot/           # Spring Boot + CXF implementacija storitve po pristopu Contract-First
 │   └── davcna-blagajna-client/            # Java odjemalec za storitev Davčna blagajna
 ├── cs/
 │   ├── CoreWcfDavcnaBlagajna/             # .NET CoreWCF implementacija storitve
