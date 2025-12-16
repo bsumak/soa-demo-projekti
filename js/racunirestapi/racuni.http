@@ -1,0 +1,40 @@
+#GET ALL
+GET http://localhost:3000/api/racuni
+
+###
+#GET BY ID
+GET http://localhost:3000/api/racuni/6940486ba0d789c98260a1ab
+
+###
+#POST
+POST http://localhost:3000/api/racuni
+Content-Type: application/json
+
+{
+  "id":"6546645465465",
+  "datum": "16.12.2025",
+  "kraj":"Koper",
+  "znesek": 134.34,
+  "ppId": "20220202020202",
+  "davcnaSt": "49394939939"
+}
+
+
+###
+PUT http://localhost:3000/api/racuni/6941262c68791c557772aa2b
+Content-Type: application/json
+
+{
+    "_id": "6941262c68791c557772aa2b",
+    "id": "6546645465465",
+    "datum": "16.12.2025",
+    "kraj": "Koper",
+    "znesek": 2334.34,
+    "ppId": "20220202020202",
+    "davcnaSt": "49394939939",
+    "__v": 0
+  }
+
+###
+#DELETE BY ID
+DELETE http://localhost:3000/api/racuni/6941262c68791c557772aa2b

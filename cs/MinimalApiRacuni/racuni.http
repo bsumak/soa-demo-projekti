@@ -1,0 +1,39 @@
+#GET
+GET http://localhost:5247/api/racuni
+
+###
+
+#GET by id
+GET http://localhost:5247/api/racuni/c14aeeca-12b0-4b5f-a21d-e3a87cdca155
+
+
+###
+
+POST http://localhost:5247/api/racuni
+Content-Type: application/json
+
+{
+  "datum": "17.12.2025",
+  "kraj": "Murska Sobota",
+  "znesek": 1200,
+  "ppId": "5467576756",
+  "davcnaSt": "576853443"
+}
+
+###
+
+PUT http://localhost:5247/api/racuni/14b4c7ec-e6c6-47b9-9060-5390cdea4165
+Content-Type: application/json
+
+ {
+    "id": "14b4c7ec-e6c6-47b9-9060-5390cdea4165",
+    "datum": "17.12.2025",
+    "kraj": "Murska Sobota",
+    "znesek": 3400,
+    "ppId": "5467576756",
+    "davcnaSt": "576853443"
+  }
+
+###
+
+DELETE http://localhost:5247/api/racuni/14b4c7ec-e6c6-47b9-9060-5390cdea4165

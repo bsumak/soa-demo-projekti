@@ -1,0 +1,33 @@
+GET http://localhost:8080/api/racuni
+
+###
+GET http://localhost:8080/api/racuni/98fdf4b8-4b28-4ed5-931e-f1949a5dfa27
+
+###
+POST http://localhost:8080/api/racuni
+Content-Type: application/json
+
+{
+  "datum": "16.12.2025",
+  "kraj": "Maribor",
+  "znesek": 100,
+  "ppId": "299292020202",
+  "davcnaSt": "838484848"
+}
+
+###
+
+PUT http://localhost:8080/api/racuni/3630f194-f64c-4f08-bf12-3d1ab2b14925
+Content-Type: application/json
+
+{
+    "id": "3630f194-f64c-4f08-bf12-3d1ab2b14925",
+    "datum": "16.12.2025",
+    "kraj": "Maribor",
+    "znesek": 400.0,
+    "ppId": "299292020202",
+    "davcnaSt": "838484848"
+  }
+
+###
+DELETE http://localhost:8080/api/racuni/3630f194-f64c-4f08-bf12-3d1ab2b14925
