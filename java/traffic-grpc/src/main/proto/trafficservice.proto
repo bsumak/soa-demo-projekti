@@ -1,0 +1,35 @@
+syntax="proto3";
+package trafficservice;
+option java_multiple_files = true;
+
+//storitev za registracijo senzorjev in poročanje o prometu
+service TrafficService {
+  //registracija novega senzorja
+  rpc TrafficSensorActivation (TrafficSensorData) returns (TrafficSensorActivationResponse);
+  //poročanje prometa
+  rpc TrafficFlow (TrafficFlowData) returns (TrafficFlowResponse);
+}
+
+message TrafficSensorData {
+  string sensor_name = 1;
+  string sensor_type = 2;
+  double lattitude = 3;
+  double longitude = 4;
+}
+
+message TrafficSensorActivationResponse {
+  string sensor_id = 1;
+  string activation_status = 2;
+  string activation_date = 3;
+}
+
+message TrafficFlowData {
+  string sensor_id = 1;
+  string datum_od = 2;
+  string datum_do = 3;
+  double flow = 4;
+}
+
+message TrafficFlowResponse {
+  string response = 1;
+}

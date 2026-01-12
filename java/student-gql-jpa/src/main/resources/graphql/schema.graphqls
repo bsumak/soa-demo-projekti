@@ -1,0 +1,45 @@
+type Query {
+  getStudent(id: ID!): Student
+  vsiPredmeti(id: ID!): [Predmet!]!
+  vseOcene(id: ID!): [Ocena!]!
+}
+
+type Mutation {
+  createStudent(ime: String!, priimek: String!, smer: String!): Student!
+  updateStudent(id: ID!, ime: String!, priimek: String!, smer: String!, email: String!): Student!
+  deleteStudent(id: ID!): Student!
+
+  createPredmet(naziv: String!, semester: String!, ects: Int): Predmet!
+  updatePredmet(id: ID!, naziv: String!, semester: String!, ects: Int): Predmet!
+  deletePredmet(id: ID!): Predmet!
+
+  createOcena(naziv: String!, ocena: Float!, datum: String!, studentId: ID!): Ocena!
+  updateOcena(id: ID!, naziv: String!, ocena: Float!, datum: String!, studentId: ID!): Ocena!
+  deleteOcena(id: ID!): Ocena!
+}
+
+type Student {
+  id: ID!
+  vpisnaStevilka: String!
+  ime: String!
+  priimek: String!
+  email: String!
+  smer: String!
+  predmeti: [Predmet!]!
+  ocene: [Ocena]
+}
+
+type Predmet {
+  id: ID!
+  naziv: String!
+  semester: String!
+  ects: Int!
+}
+
+type Ocena {
+  id: ID!
+  naziv: String!
+  ocena: Float!
+  datum: String!
+  student: Student!
+}

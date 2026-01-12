@@ -3,6 +3,8 @@
 Ta repozitorij vsebuje demo projekte za predavanja/vaje s področja **storitveno usmerjenih arhitektur (SOA)**:
 - **SOAP** spletne storitve (Contract‑First in Code‑First) + odjemalci
 - **REST** API (primeri za domeno *računi*) v različnih tehnologijah
+- **GraphQL** API (primeri za domeno *študenti/predmeti/ocene*)
+- **gRPC** primer (strežnik + odjemalec) za domeno *TrafficService*
 
 ---
 
@@ -48,10 +50,40 @@ Vsak projekt vsebuje svoj README z natančnimi navodili za zagon in uporabo API�
 
 ---
 
+## GraphQL projekti (študenti)
+
+- **Spring Boot / GraphQL + JPA + H2** → [`java/student-gql-jpa`](java/student-gql-jpa)
+
+Hiter zagon:
+```bash
+cd java/student-gql-jpa
+./mvnw spring-boot:run
+# GraphiQL: http://localhost:8080/graphiql
+```
+
+---
+
+## gRPC projekti
+
+- **Java / gRPC (TrafficService)** → [`java/traffic-grpc`](java/traffic-grpc)
+
+Hiter zagon (dve konzoli):
+```bash
+cd java/traffic-grpc
+mvn -q exec:java -Dexec.mainClass="si.feri.soa.server.TrafficSensorServer"
+```
+
+```bash
+cd java/traffic-grpc
+mvn -q exec:java -Dexec.mainClass="si.feri.soa.client.TrafficSensorClient"
+```
+
+---
+
 ## Zahteve
 
 - **Docker** (Desktop ali Engine) — če zaganjate preko Dockerja
-- **Java 21+** (priporočeno 25) in **Maven 3.9+** — za Java projekte
+- **Java 17+** (priporočeno 25) in **Maven 3.9+** — za Java projekte
 - **.NET SDK 8.0** — za C# projekte
 - **Node.js (LTS) in npm** — za projekte v mapi `js/`
 
@@ -181,6 +213,8 @@ docker run --rm -p 9090:9090 node-davcnablagajna:latest
 │   ├── davcna-blagajna-soap-implicitno/   # Java JAX-WS – implicitna definicija storitve
 │   ├── racuni-rest/                       # Java REST API za račune (JAX-RS)
 │   ├── spring-racuni/                     # Spring Boot REST API za račune
+│   ├── student-gql-jpa/                  # Spring Boot GraphQL + JPA + H2 – primer za študente
+│   ├── traffic-grpc/                      # gRPC strežnik + odjemalec (TrafficService) + .proto
 │   ├── traffic-service-cf/                # Apache CXF JAX-WS – Contract-First implementacija (TrafficService)
 │   └── traffic-service-cf-boot/           # Spring Boot + CXF – Contract-First implementacija (TrafficService)
 ├── js/
